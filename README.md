@@ -18,10 +18,10 @@
 
 ## 新主线
 
-* [AI 文章](./ai-articles/README.md)：我对 AI 的观察、吐槽和思考。它不一定是教程，也不一定是结论，更像是一个普通开发者在 AI 时代里的真实记录。
-* [AI 资源](./ai-resources/README.md)：轻量整理我觉得值得收藏的 AI 项目、工具和资料，不做普通的 awesome 列表。
-* [开发规约](./development-guidelines/README.md)：项目维护、AI coding 工作流和开发协作相关的规约，会慢慢沉淀成可复用的实践。
-* [旧内容归档](./archive-bestjavaer/README.md)：Java、并发、JVM、操作系统、网络、MySQL、Spring、面试题等旧 bestJavaer 内容继续保留。
+* [AI 文章](./ai-articles/README.md) 我对 AI 的观察、吐槽和思考。它不一定是教程，也不一定是结论，更像是一个普通开发者在 AI 时代里的真实记录。
+* [AI 资源](./ai-resources/README.md) 轻量整理我觉得值得收藏的 AI 项目、工具和资料，不做普通的 awesome 列表。
+* [开发规约](./development-guidelines/README.md) 项目维护、AI coding 工作流和开发协作相关的规约，会慢慢沉淀成可复用的实践。
+* [旧内容归档](./archive-bestjavaer/README.md) Java、并发、JVM、操作系统、网络、MySQL、Spring、面试题等旧 bestJavaer 内容继续保留。
 
 这里后面还会放一些 AI Playground 和 AI Trash：好玩的实验、做废的小工具、离谱但真实的 AI 生成内容，以及一些能证明某条路暂时走不通的想法化石。
 
