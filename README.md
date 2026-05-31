@@ -18,18 +18,18 @@
 
 ## 新主线
 
-* [AI 文章](./ai-articles/README.md) 我对 AI 的观察、吐槽和思考。它不一定是教程，也不一定是结论，更像是一个普通开发者在 AI 时代里的真实记录。
-* [AI 资源](./ai-resources/README.md) 轻量整理我觉得值得收藏的 AI 项目、工具和资料，不做普通的 awesome 列表。
-* [开发规约](./development-guidelines/README.md) 项目维护、AI coding 工作流和开发协作相关的规约，会慢慢沉淀成可复用的实践。
+* [AI 文章](./ai-articles/README.md) 读一些普通开发者在 AI 时代里的真实观察、工具体验、踩坑记录和行业判断。
+* [AI 资源](./ai-resources/README.md) 找一些值得收藏的 AI 项目、工具和资料，比普通 awesome 列表更轻，也更贴近日常使用。
+* [开发规约](./development-guidelines/README.md) 查看项目维护、AI coding 工作流和开发协作相关的规约，适合作为实践参考。
 * [旧内容归档](./archive-bestjavaer/README.md) Java、并发、JVM、操作系统、网络、MySQL、Spring、面试题等旧 bestJavaer 内容继续保留。
 
-这里后面还会放一些 AI Playground 和 AI Trash：好玩的实验、做废的小工具、离谱但真实的 AI 生成内容，以及一些能证明某条路暂时走不通的想法化石。
+后续还会继续补充 AI Playground 和 AI Trash：好玩的实验、做废的小工具、离谱但真实的 AI 生成内容，以及一些能证明某条路走不通的想法化石。
 
 ## 旧内容
 
-这里继续收录一些古法编程时期的 archive ，有些小伙伴还是会看，但是。。。。。。
+旧内容继续收录一些古法编程时期的 archive，有些小伙伴还是会看，但是。。。。。。
 
-旧的 Java、计算机基础、操作系统、网络、并发、JVM、MySQL、Spring、面试题等内容会继续保留。它们是这个仓库的过去，也是一段真实的创作记录。
+Java、计算机基础、操作系统、网络、并发、JVM、MySQL、Spring、面试题等内容会继续保留。它们是这个仓库的过去，也是一段真实的创作记录。
 
 只是从现在开始，这个仓库的新主线会慢慢转向 AI。
 
