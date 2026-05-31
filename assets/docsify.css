@@ -594,11 +594,10 @@ nav a:hover {
 }
 
 .home-page .markdown-section .home-reading-grid {
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .markdown-section .home-feature-card,
-.home-page .markdown-section .home-reading-grid > li,
 .home-page .markdown-section .home-feature-grid > li,
 .home-page .markdown-section .home-reason-grid > li {
   background: var(--taste-paper);
@@ -621,7 +620,6 @@ nav a:hover {
 }
 
 .markdown-section .home-feature-card:hover,
-.home-page .markdown-section .home-reading-grid > li:hover,
 .home-page .markdown-section .home-feature-grid > li:hover,
 .home-page .markdown-section .home-reason-grid > li:hover {
   border-color: rgba(0, 179, 138, 0.5);
@@ -632,7 +630,6 @@ nav a:hover {
 }
 
 .home-feature-card strong,
-.home-page .markdown-section .home-reading-grid > li > a:first-child,
 .home-page .markdown-section .home-feature-grid > li > a:first-child,
 .home-page .markdown-section .home-reason-grid > li > a:first-child {
   border-bottom: 0;
@@ -652,13 +649,94 @@ nav a:hover {
   line-height: 1.65;
 }
 
-.home-page .markdown-section .home-reading-grid p,
 .home-page .markdown-section .home-feature-grid p,
 .home-page .markdown-section .home-reason-grid p {
   color: var(--taste-text);
   font-size: 15px;
   line-height: 1.72;
   margin: 0;
+}
+
+.home-page .markdown-section .home-reading-grid > li {
+  list-style: none;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.home-page .markdown-section .home-reading-card {
+  background: var(--taste-paper);
+  border: 1px solid var(--taste-line);
+  border-radius: 10px;
+  color: var(--taste-text);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.home-page .markdown-section .home-reading-card:hover {
+  border-color: rgba(0, 179, 138, 0.5);
+  box-shadow: 0 10px 26px rgba(0, 143, 112, 0.12);
+  color: var(--taste-text);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.home-page .markdown-section .home-reading-card-media {
+  align-items: center;
+  aspect-ratio: 16 / 9;
+  background:
+    linear-gradient(135deg, rgba(0, 179, 138, 0.14), rgba(255, 255, 255, 0.58)),
+    var(--taste-block);
+  color: var(--taste-accent-deep);
+  display: flex;
+  font-size: 22px;
+  font-weight: 800;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.home-page .markdown-section .home-reading-card-media img {
+  border-radius: 0;
+  display: block;
+  height: 100%;
+  margin: 0;
+  max-width: none;
+  object-fit: cover;
+  width: 100%;
+}
+
+.home-page .markdown-section .home-reading-card-media.is-empty span,
+.home-page .markdown-section .home-reading-card-media.is-loading span {
+  border-bottom: 2px solid var(--taste-accent);
+  line-height: 1.2;
+  padding-bottom: 4px;
+}
+
+.home-page .markdown-section .home-reading-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px 18px;
+}
+
+.home-page .markdown-section .home-reading-card-title {
+  color: var(--taste-accent-deep);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.home-page .markdown-section .home-reading-card-summary {
+  color: var(--taste-text);
+  font-size: 15px;
+  line-height: 1.72;
 }
 
 .home-page .markdown-section .home-update-list {

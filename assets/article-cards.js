@@ -123,6 +123,86 @@
         next.classList.remove(className);
       });
       next.classList.add(listClass);
+
+      if (listClass === 'home-reading-grid') {
+        renderFeaturedCards(next);
+      }
+    });
+  }
+
+  function renderFeaturedCards(list) {
+    Array.from(list.children).forEach(function (item) {
+      if (item.tagName !== 'LI' || item.classList.contains('home-reading-item')) {
+        return;
+      }
+
+      var link = item.querySelector('a[href]');
+
+      if (!link) {
+        return;
+      }
+
+      var markdownPath = toMarkdownPath(link.getAttribute('href') || '');
+
+      if (!markdownPath || !isArticleMarkdown(markdownPath)) {
+        return;
+      }
+
+      var summaryNode = Array.from(item.querySelectorAll('p')).find(function (paragraph) {
+        return !paragraph.querySelector('a[href]');
+      });
+
+      renderFeaturedCard({
+        href: toRouteHref(markdownPath),
+        item: item,
+        markdownPath: markdownPath,
+        summary: summaryNode ? summaryNode.textContent.trim() : '',
+        title: link.textContent.trim()
+      });
+    });
+  }
+
+  function renderFeaturedCard(article) {
+    var item = article.item;
+    var card = document.createElement('a');
+    var media = document.createElement('span');
+    var body = document.createElement('span');
+    var title = document.createElement('span');
+    var summary = document.createElement('span');
+
+    item.className = 'home-reading-item';
+    card.className = 'home-reading-card';
+    card.href = article.href;
+    media.className = 'home-reading-card-media is-loading';
+    media.innerHTML = '<span>AI</span>';
+    body.className = 'home-reading-card-body';
+    title.className = 'home-reading-card-title';
+    summary.className = 'home-reading-card-summary';
+    title.textContent = article.title;
+    summary.textContent = article.summary;
+
+    body.appendChild(title);
+    body.appendChild(summary);
+    card.appendChild(media);
+    card.appendChild(body);
+    item.textContent = '';
+    item.appendChild(card);
+
+    getCover(article.markdownPath).then(function (cover) {
+      media.classList.remove('is-loading');
+
+      if (!cover) {
+        media.classList.add('is-empty');
+        media.innerHTML = '<span>' + getInitials(article.title) + '</span>';
+        return;
+      }
+
+      var image = document.createElement('img');
+      image.alt = article.title;
+      image.loading = 'lazy';
+      image.src = cover;
+      media.textContent = '';
+      media.appendChild(image);
     });
   }
 
@@ -236,7 +316,18 @@
       return resolveImageSource(src, markdownPath);
     }
 
-    return '';
+    return extractGitHubRepositoryCover(markdown);
+  }
+
+  function extractGitHubRepositoryCover(markdown) {
+    var repoPattern = /https?:\/\/github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/i;
+    var repoMatch = repoPattern.exec(markdown);
+
+    if (!repoMatch) {
+      return '';
+    }
+
+    return 'https://opengraph.githubassets.com/cxuan-ai-labs/' + repoMatch[1] + '/' + repoMatch[2];
   }
 
   function getCurrentRoute() {
