@@ -1,4 +1,5 @@
 (function () {
+  var articleIndexCache = null;
   var coverCache = new Map();
   var renderTimer = 0;
 
@@ -61,9 +62,12 @@
     var route = getCurrentRoute();
     var isHome = isHomeRoute(route);
     var isArticleIndex = isArticleIndexRoute(route);
+    var currentMarkdownPath = getCurrentMarkdownPath(route);
+    var isArticleDetail = isArticleMarkdown(currentMarkdownPath);
 
     document.documentElement.classList.toggle('home-page', isHome);
     document.documentElement.classList.toggle('article-index-page', isArticleIndex);
+    document.documentElement.classList.toggle('article-detail-page', isArticleDetail);
     document.documentElement.classList.toggle('wide-page', isHome || isArticleIndex);
 
     var section = document.querySelector('.markdown-section');
@@ -74,6 +78,10 @@
 
     if (isHome) {
       decorateHomePage(section);
+    }
+
+    if (isArticleDetail) {
+      renderSeriesNav(section, currentMarkdownPath);
     }
 
     if (!isArticleIndex) {
@@ -95,6 +103,135 @@
         renderCard(item);
       });
     });
+  }
+
+  function renderSeriesNav(section, currentMarkdownPath) {
+    if (section.querySelector('.article-series-nav')) {
+      return;
+    }
+
+    getArticleIndex().then(function (articles) {
+      var activePath = getCurrentMarkdownPath(getCurrentRoute());
+      var index = articles.findIndex(function (article) {
+        return normalizeMarkdownPath(article.markdownPath) === normalizeMarkdownPath(currentMarkdownPath);
+      });
+
+      if (normalizeMarkdownPath(activePath) !== normalizeMarkdownPath(currentMarkdownPath) || index < 0) {
+        return;
+      }
+
+      var previous = articles[index - 1] || null;
+      var next = articles[index + 1] || null;
+
+      if (!previous && !next) {
+        return;
+      }
+
+      var nav = document.createElement('div');
+
+      nav.className = 'article-series-nav';
+      nav.setAttribute('aria-label', '文章连载导航');
+      nav.setAttribute('role', 'navigation');
+      nav.appendChild(createSeriesCard(previous, '上一篇', '已经是第一篇', 'previous'));
+      nav.appendChild(createSeriesCard(next, '下一篇', '已经是最后一篇', 'next'));
+      section.appendChild(nav);
+    });
+  }
+
+  function createSeriesCard(article, label, fallbackTitle, direction) {
+    var card = document.createElement(article ? 'a' : 'span');
+    var labelNode = document.createElement('span');
+    var titleNode = document.createElement('span');
+    var dateNode = document.createElement('span');
+
+    card.className = 'article-series-card is-' + direction + (article ? '' : ' is-disabled');
+
+    if (article) {
+      card.href = article.href;
+    }
+
+    labelNode.className = 'article-series-card-label';
+    titleNode.className = 'article-series-card-title';
+    dateNode.className = 'article-series-card-date';
+    labelNode.textContent = label;
+    titleNode.textContent = article ? article.title : fallbackTitle;
+    dateNode.textContent = article && article.date ? article.date : '';
+
+    card.appendChild(labelNode);
+    card.appendChild(titleNode);
+    card.appendChild(dateNode);
+
+    return card;
+  }
+
+  function getArticleIndex() {
+    if (articleIndexCache) {
+      return articleIndexCache;
+    }
+
+    articleIndexCache = fetch('ai-articles/README.md?v=20260602-branch-back', {
+      cache: 'force-cache'
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          return '';
+        }
+
+        return response.text();
+      })
+      .then(extractArticleIndex)
+      .catch(function () {
+        return [];
+      });
+
+    return articleIndexCache;
+  }
+
+  function extractArticleIndex(markdown) {
+    var articles = [];
+    var pattern = /^\s*-\s*(\d{4}-\d{2}-\d{2})\s*-\s*\[([^\]]+)\]\(([^)]+)\)/gm;
+    var match;
+
+    while ((match = pattern.exec(markdown))) {
+      var markdownPath = resolveIndexMarkdownPath(match[3]);
+
+      if (!isArticleMarkdown(markdownPath)) {
+        continue;
+      }
+
+      articles.push({
+        date: match[1],
+        href: toRouteHref(markdownPath),
+        markdownPath: markdownPath,
+        title: match[2].trim()
+      });
+    }
+
+    return articles;
+  }
+
+  function resolveIndexMarkdownPath(href) {
+    var cleanHref = (href || '').split('?')[0].split('#')[0].trim();
+
+    if (!cleanHref || /^(https?:|mailto:)/i.test(cleanHref)) {
+      return '';
+    }
+
+    if (cleanHref.indexOf('#/') === 0) {
+      return toMarkdownPath(cleanHref);
+    }
+
+    if (cleanHref.indexOf('./') === 0) {
+      cleanHref = 'ai-articles/' + cleanHref.slice(2);
+    } else if (cleanHref.indexOf('ai-articles/') !== 0) {
+      cleanHref = 'ai-articles/' + cleanHref.replace(/^\/+/, '');
+    }
+
+    if (!/\.md$/i.test(cleanHref)) {
+      cleanHref += '.md';
+    }
+
+    return cleanHref.replace(/^\/+/, '');
   }
 
   function decorateHomePage(section) {
@@ -363,6 +500,20 @@
     return (window.location.hash || '#/').replace(/^#\/?/, '').split('?')[0];
   }
 
+  function getCurrentMarkdownPath(route) {
+    var path = (route || '').replace(/^\/+/, '');
+
+    if (!path || path === 'README' || /\/README$/.test(path)) {
+      return '';
+    }
+
+    if (!/\.md$/i.test(path)) {
+      path += '.md';
+    }
+
+    return path;
+  }
+
   function isArticleIndexRoute(route) {
     return (
       route === 'ai-articles' ||
@@ -409,6 +560,16 @@
 
   function toRouteHref(markdownPath) {
     return '#/' + markdownPath.replace(/\.md$/i, '').replace(/^\/+/, '');
+  }
+
+  function normalizeMarkdownPath(markdownPath) {
+    var normalized = (markdownPath || '').replace(/^\/+/, '');
+
+    try {
+      return decodeURIComponent(normalized);
+    } catch (error) {
+      return normalized;
+    }
   }
 
   function resolveRelativeMarkdownPath(href) {

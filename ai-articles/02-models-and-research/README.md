@@ -2,8 +2,6 @@
 
 模型能力、研究论文/报告、Prompt 方法论、评测和 LLM 认知。
 
-共 15 篇。
-
 - 2026-05-19 - [Deepseek 会泄露其他玩家的对话](./Deepseek%20%E4%BC%9A%E6%B3%84%E9%9C%B2%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E7%9A%84%E5%AF%B9%E8%AF%9D.md)
 - 2026-05-17 - [我说怎么今天用 GPT-5.5 感觉有点弱智 。。。。。。。](./%E6%88%91%E8%AF%B4%E6%80%8E%E4%B9%88%E4%BB%8A%E5%A4%A9%E7%94%A8%20GPT-5.5%20%E6%84%9F%E8%A7%89%E6%9C%89%E7%82%B9%E5%BC%B1%E6%99%BA%20%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82.md)
 - 2026-05-15 - [吴恩达这门新课，重新定义了 Prompt](./%E5%90%B4%E6%81%A9%E8%BE%BE%E8%BF%99%E9%97%A8%E6%96%B0%E8%AF%BE%EF%BC%8C%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E4%BA%86%20Prompt.md)
@@ -19,3 +17,5 @@
 - 2026-04-07 - [token 与比特币](./token%20%E4%B8%8E%E6%AF%94%E7%89%B9%E5%B8%81.md)
 - 2026-03-27 - [Claude 王炸](./Claude%20%E7%8E%8B%E7%82%B8.md)
 - 2026-02-04 - [claude-in-action 课程](./claude-in-action%20%E8%AF%BE%E7%A8%8B.md)
+
+<p class="branch-back"><a href="#/ai-articles/README">返回 AI 文章</a></p>

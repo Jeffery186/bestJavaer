@@ -472,6 +472,76 @@ nav a:hover {
   line-height: 1.5;
 }
 
+.article-detail-page .markdown-section .article-series-nav {
+  border-top: 1px solid var(--taste-line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 4em 8px 0;
+  padding-top: 22px;
+}
+
+.article-detail-page .markdown-section .article-series-card {
+  background: var(--taste-paper);
+  border: 1px solid var(--taste-line);
+  border-radius: 10px;
+  color: var(--taste-text);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 126px;
+  padding: 18px 18px 20px;
+  text-decoration: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.article-detail-page .markdown-section .article-series-card:hover {
+  border-color: rgba(0, 179, 138, 0.5);
+  box-shadow: 0 10px 26px rgba(0, 143, 112, 0.12);
+  color: var(--taste-text);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.article-detail-page .markdown-section .article-series-card.is-next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.article-detail-page .markdown-section .article-series-card.is-disabled {
+  background: var(--taste-block);
+  box-shadow: none;
+  color: var(--taste-soft);
+  opacity: 0.72;
+  transform: none;
+}
+
+.article-detail-page .markdown-section .article-series-card-label {
+  color: var(--taste-accent-deep);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.article-detail-page .markdown-section .article-series-card-title {
+  color: var(--taste-text);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.article-detail-page .markdown-section .article-series-card.is-disabled .article-series-card-title {
+  color: var(--taste-soft);
+}
+
+.article-detail-page .markdown-section .article-series-card-date {
+  color: var(--taste-soft);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.2;
+  margin-top: auto;
+}
+
 .markdown-section > div:first-child[align="center"] {
   display: block;
   margin: 0 auto 34px;
@@ -802,9 +872,33 @@ nav a:hover {
   width: 22%;
 }
 
-.article-index-page .markdown-section th:last-child,
-.article-index-page .markdown-section td:last-child {
-  width: 72px;
+.markdown-section .branch-back {
+  margin: 3em 8px 0;
+}
+
+.markdown-section .branch-back a {
+  align-items: center;
+  background: var(--taste-accent);
+  border: 1px solid var(--taste-accent);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.2;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.markdown-section .branch-back a:hover {
+  background: var(--taste-accent-deep);
+  border-color: var(--taste-accent-deep);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 .markdown-section thead,
@@ -865,6 +959,17 @@ nav a:hover {
 
   .article-index-page .markdown-section .article-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .article-detail-page .markdown-section .article-series-nav {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .article-detail-page .markdown-section .article-series-card.is-next {
+    align-items: stretch;
+    text-align: left;
   }
 
   .markdown-section > div:first-child[align="center"] {

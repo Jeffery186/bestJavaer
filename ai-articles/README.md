@@ -2,14 +2,14 @@
 
 这些文章记录了 AI 工具体验、模型观察、行业动态、创作实验和真实踩坑。你可以按分类浏览，也可以直接从全部文章里挑感兴趣的内容读。
 
-| 分类 | 说明 | 数量 |
-| --- | --- | ---: |
-| [AI Agent 与编程工具](./01-agent-and-coding/README.md) | Codex、Claude Code、Claw、Agent 工作流、AI 编程工具和真实使用体验。 | 27 |
-| [模型、研究与 Prompt](./02-models-and-research/README.md) | 模型能力、研究论文/报告、Prompt 方法论、评测和 LLM 认知。 | 15 |
-| [工具、资源与工作台](./03-tools-and-resources/README.md) | AI 网站、资源清单、知识管理、排版工作台、个人工具和资源型内容。 | 10 |
-| [产业、公司与商业动态](./04-industry-and-business/README.md) | 公司动态、平台变化、商业化、基础设施、安全事件和行业判断。 | 17 |
-| [AI 生成与多媒体](./05-ai-creation-and-media/README.md) | 图像、视频、3D、创意生成和 AI 内容实验。 | 4 |
-| [观察、杂谈与事故记录](./06-notes-and-observations/README.md) | 个人观察、杂谈、踩坑、事故复盘和横跨多个主题的真实记录。 | 7 |
+| 分类 | 说明 |
+| --- | --- |
+| [AI Agent 与编程工具](./01-agent-and-coding/README.md) | Codex、Claude Code、Claw、Agent 工作流、AI 编程工具和真实使用体验。 |
+| [模型、研究与 Prompt](./02-models-and-research/README.md) | 模型能力、研究论文/报告、Prompt 方法论、评测和 LLM 认知。 |
+| [工具、资源与工作台](./03-tools-and-resources/README.md) | AI 网站、资源清单、知识管理、排版工作台、个人工具和资源型内容。 |
+| [产业、公司与商业动态](./04-industry-and-business/README.md) | 公司动态、平台变化、商业化、基础设施、安全事件和行业判断。 |
+| [AI 生成与多媒体](./05-ai-creation-and-media/README.md) | 图像、视频、3D、创意生成和 AI 内容实验。 |
+| [观察、杂谈与事故记录](./06-notes-and-observations/README.md) | 个人观察、杂谈、踩坑、事故复盘和横跨多个主题的真实记录。 |
 
 ## 全部文章
 
