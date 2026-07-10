@@ -605,11 +605,17 @@
     "english_title": "Can Codex Wear Out Your SSD? A Complete Investigation",
     "source_title": "Codex 会把磁盘给烧了？完整复盘来了！"
   },
-  "ai-articles/01-agent-and-coding/Claude Code 源码分析第一篇：Claude Code 为什么不是一个聊天机器人，而是一个 Agent 系统.md": {
+  "ai-articles/01-agent-and-coding/读懂 Claude Code 架构分析系列，第一篇，开始！.md": {
     "category": "01-agent-and-coding",
-    "english_path": "en/ai-articles/01-agent-and-coding/claude-code-from-source-why-it-is-an-agent-system-not-a-chatbot.md",
-    "english_title": "Claude Code From Source, Part 1: Why Claude Code Is an Agent System, Not a Chatbot",
-    "source_title": "Claude Code 源码分析第一篇：Claude Code 为什么不是一个聊天机器人，而是一个 Agent 系统"
+    "english_path": "en/ai-articles/01-agent-and-coding/understanding-claude-code-architecture-part-1.md",
+    "english_title": "Understanding Claude Code Architecture, Part 1: Let's Begin",
+    "source_title": "读懂 Claude Code 架构分析系列，第一篇，开始！"
+  },
+  "ai-articles/01-agent-and-coding/读懂 Claude Code 架构分析系列，第二篇：Claude Code 是怎样启动的？.md": {
+    "category": "01-agent-and-coding",
+    "english_path": "en/ai-articles/01-agent-and-coding/understanding-claude-code-architecture-part-2-fast-startup.md",
+    "english_title": "Understanding Claude Code Architecture, Part 2: How Does Claude Code Start So Fast?",
+    "source_title": "读懂 Claude Code 架构分析系列，第二篇：Claude Code 是怎样启动的？"
   },
   "ai-articles/01-agent-and-coding/今天 Github 看到一个把 AI Agent 工作流打包成操作系统的项目：ECC.md": {
     "category": "01-agent-and-coding",
